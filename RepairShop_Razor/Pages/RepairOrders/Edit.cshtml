@@ -1,0 +1,45 @@
+﻿@page
+@model RepairShop_Razor.Pages.RepairOrders.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>RepairOrder</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RepairOrder.RepairOrderID" />
+            <div class="form-group">
+                <label asp-for="RepairOrder.CustomerID" class="control-label"></label>
+                <select asp-for="RepairOrder.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+                <span asp-validation-for="RepairOrder.CustomerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.EmployeeID" class="control-label"></label>
+                <select asp-for="RepairOrder.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+                <span asp-validation-for="RepairOrder.EmployeeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.Status" class="control-label"></label>
+                <input asp-for="RepairOrder.Status" class="form-control" />
+                <span asp-validation-for="RepairOrder.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
