@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RepairShop_Razor.Data;
 using RepairShop_Razor.Models;
 
-namespace RepairShop_Razor.Pages.RepairOrders
+namespace RepairShop_Razor.Pages.Parts
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace RepairShop_Razor.Pages.RepairOrders
             _context = context;
         }
 
-        public RepairOrder RepairOrder { get; set; }
+        public Part Part { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,12 +28,9 @@ namespace RepairShop_Razor.Pages.RepairOrders
                 return NotFound();
             }
 
-            RepairOrder = await _context.RepairOrders
-                .Include(r => r.Customer)
-                .Include(r => r.Employee)
-                .Include(r => r.Part).FirstOrDefaultAsync(m => m.RepairOrderID == id);
+            Part = await _context.Parts.FirstOrDefaultAsync(m => m.PartID == id);
 
-            if (RepairOrder == null)
+            if (Part == null)
             {
                 return NotFound();
             }

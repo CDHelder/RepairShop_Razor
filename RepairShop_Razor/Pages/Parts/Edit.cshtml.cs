@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using RepairShop_Razor.Data;
 using RepairShop_Razor.Models;
 
-namespace RepairShop_Razor.Pages.RepairOrders
+namespace RepairShop_Razor.Pages.Parts
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace RepairShop_Razor.Pages.RepairOrders
         }
 
         [BindProperty]
-        public RepairOrder RepairOrder { get; set; }
+        public Part Part { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,18 +30,12 @@ namespace RepairShop_Razor.Pages.RepairOrders
                 return NotFound();
             }
 
-            RepairOrder = await _context.RepairOrders
-                .Include(r => r.Customer)
-                .Include(r => r.Employee)
-                .Include(r => r.Part).FirstOrDefaultAsync(m => m.RepairOrderID == id);
+            Part = await _context.Parts.FirstOrDefaultAsync(m => m.PartID == id);
 
-            if (RepairOrder == null)
+            if (Part == null)
             {
                 return NotFound();
             }
-           ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "ID");
-           ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeID");
-           ViewData["PartID"] = new SelectList(_context.Parts, "PartID", "PartID");
             return Page();
         }
 
@@ -54,7 +48,7 @@ namespace RepairShop_Razor.Pages.RepairOrders
                 return Page();
             }
 
-            _context.Attach(RepairOrder).State = EntityState.Modified;
+            _context.Attach(Part).State = EntityState.Modified;
 
             try
             {
@@ -62,7 +56,7 @@ namespace RepairShop_Razor.Pages.RepairOrders
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RepairOrderExists(RepairOrder.RepairOrderID))
+                if (!PartExists(Part.PartID))
                 {
                     return NotFound();
                 }
@@ -75,9 +69,9 @@ namespace RepairShop_Razor.Pages.RepairOrders
             return RedirectToPage("./Index");
         }
 
-        private bool RepairOrderExists(int id)
+        private bool PartExists(int id)
         {
-            return _context.RepairOrders.Any(e => e.RepairOrderID == id);
+            return _context.Parts.Any(e => e.PartID == id);
         }
     }
 }

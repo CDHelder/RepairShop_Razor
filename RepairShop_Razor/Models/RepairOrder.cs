@@ -18,10 +18,12 @@ namespace RepairShop_Razor.Models
         public int RepairOrderID { get; set; }
         public int CustomerID { get; set; }
         public int EmployeeID { get; set; }
+        public int PartID { get; set; }
         public Status? Status { get; set; }
 
         public Customer Customer { get; set; }
         public Employee Employee { get; set; }
+        public Part Part { get; set; }
 
     }
 }

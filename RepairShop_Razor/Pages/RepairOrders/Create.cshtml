@@ -1,4 +1,5 @@
 ﻿@page
+
 @model RepairShop_Razor.Pages.RepairOrders.CreateModel
 
 @{
@@ -14,12 +15,26 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+
                 <label asp-for="RepairOrder.CustomerID" class="control-label"></label>
-                <select asp-for="RepairOrder.CustomerID" class ="form-control" asp-items="ViewBag.CustomerID"></select>
+                <select asp-for="RepairOrder.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
+
+                <!--
+                <label asp-for="RepairOrder.Customer.FirstMidName" class="control-label"></label>
+                <select>
+                    @@foreach (var customer in ViewData["Customers"])
+                    {
+                        <option value="@@Model.RepairOrder.CustomerID">@@Model.RepairOrder.Customer.FirstMidName</option>
+                    }
+                </select>-->
             </div>
             <div class="form-group">
                 <label asp-for="RepairOrder.EmployeeID" class="control-label"></label>
-                <select asp-for="RepairOrder.EmployeeID" class ="form-control" asp-items="ViewBag.EmployeeID"></select>
+                <select asp-for="RepairOrder.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.PartID" class="control-label"></label>
+                <select asp-for="RepairOrder.PartID" class="form-control" asp-items="ViewBag.PartID"></select>
             </div>
             <div class="form-group">
                 <label asp-for="RepairOrder.Status" class="control-label"></label>
@@ -28,6 +43,9 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div class="form-group1">
+                <input type="submit" value="Select" class="btn btn-primary" />
             </div>
         </form>
     </div>

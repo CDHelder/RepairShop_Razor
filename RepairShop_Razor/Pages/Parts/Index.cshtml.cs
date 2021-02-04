@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RepairShop_Razor.Data;
 using RepairShop_Razor.Models;
 
-namespace RepairShop_Razor.Pages.RepairOrders
+namespace RepairShop_Razor.Pages.Parts
 {
     public class IndexModel : PageModel
     {
@@ -19,14 +19,11 @@ namespace RepairShop_Razor.Pages.RepairOrders
             _context = context;
         }
 
-        public IList<RepairOrder> RepairOrder { get;set; }
+        public IList<Part> Part { get;set; }
 
         public async Task OnGetAsync()
         {
-            RepairOrder = await _context.RepairOrders
-                .Include(r => r.Customer)
-                .Include(r => r.Employee)
-                .Include(r => r.Part).ToListAsync();
+            Part = await _context.Parts.ToListAsync();
         }
     }
 }

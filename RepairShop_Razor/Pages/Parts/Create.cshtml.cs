@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using RepairShop_Razor.Data;
 using RepairShop_Razor.Models;
 
-namespace RepairShop_Razor.Pages.RepairOrders
+namespace RepairShop_Razor.Pages.Parts
 {
     public class CreateModel : PageModel
     {
@@ -21,15 +21,11 @@ namespace RepairShop_Razor.Pages.RepairOrders
 
         public IActionResult OnGet()
         {
-            ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "ID");
-            ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeID");
-            ViewData["PartID"] = new SelectList(_context.Parts, "PartID", "PartID");
-            ViewData["Customers"] = new SelectList(_context.Customers);
             return Page();
         }
 
         [BindProperty]
-        public RepairOrder RepairOrder { get; set; }
+        public Part Part { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -39,7 +35,7 @@ namespace RepairShop_Razor.Pages.RepairOrders
                 return Page();
             }
 
-            _context.RepairOrders.Add(RepairOrder);
+            _context.Parts.Add(Part);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
