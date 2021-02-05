@@ -22,19 +22,37 @@
             @Html.DisplayNameFor(model => model.RepairOrder.Customer)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RepairOrder.Customer.ID)
+            @Html.DisplayFor(model => model.RepairOrder.Customer.FirstMidName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RepairOrder.Employee)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RepairOrder.Employee.EmployeeID)
+            @Html.DisplayFor(model => model.RepairOrder.Employee.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RepairOrder.BeginDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RepairOrder.BeginDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RepairOrder.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RepairOrder.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RepairOrder.HoursWorked)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RepairOrder.HoursWorked)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RepairOrder.Part)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RepairOrder.Part.PartID)
+            @Html.DisplayFor(model => model.RepairOrder.Part.PartName)
         </dd>
     </dl>
     

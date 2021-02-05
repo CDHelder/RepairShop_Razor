@@ -22,14 +22,18 @@ namespace RepairShop_Razor.Pages.RepairOrders
         public IActionResult OnGet()
         {
             ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "FirstMidName");
-            ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeID");
-            ViewData["PartID"] = new SelectList(_context.Parts, "PartID", "PartID");
-            ViewData["Customers"] = new SelectList(_context.Customers);
+            ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "Name");
+            ViewData["PartID"] = new SelectList(_context.Parts, "PartID", "PartName");
+            ViewData["Statussen"] = new SelectList(Enum.GetValues<Status>());
+            ViewData["BeginDates"] = new SelectList(_context.RepairOrders, "RepairOrderID", "BeginDate");
+            ViewData["EndDates"] = new SelectList(_context.RepairOrders, "RepairOrderID", "EndDate");
+            ViewData["HoursWorked"] = new SelectList(_context.RepairOrders, "RepairOrderID", "HoursWorked");
             return Page();
         }
 
         [BindProperty]
         public RepairOrder RepairOrder { get; set; }
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

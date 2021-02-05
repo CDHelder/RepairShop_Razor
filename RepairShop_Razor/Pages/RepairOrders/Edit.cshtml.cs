@@ -39,9 +39,13 @@ namespace RepairShop_Razor.Pages.RepairOrders
             {
                 return NotFound();
             }
-           ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "ID");
-           ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeID");
-           ViewData["PartID"] = new SelectList(_context.Parts, "PartID", "PartID");
+            ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "FirstMidName");
+            ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "Name");
+            ViewData["PartID"] = new SelectList(_context.Parts, "PartID", "PartName");
+            ViewData["Statussen"] = new SelectList(Enum.GetValues<Status>());
+            ViewData["BeginDates"] = new SelectList(_context.RepairOrders, "RepairOrderID", "BeginDate");
+            ViewData["EndDates"] = new SelectList(_context.RepairOrders, "RepairOrderID", "EndDate");
+            ViewData["HoursWorked"] = new SelectList(_context.RepairOrders, "RepairOrderID", "HoursWorked");
             return Page();
         }
 

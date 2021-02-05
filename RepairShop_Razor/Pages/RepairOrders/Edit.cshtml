@@ -15,24 +15,38 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RepairOrder.RepairOrderID" />
             <div class="form-group">
-                <label asp-for="RepairOrder.CustomerID" class="control-label"></label>
+                <label asp-for="RepairOrder.Status" class="control-label"></label>
+                <select asp-for="RepairOrder.Status" class="form-control" asp-items="ViewBag.Statussen"></select>
+                <span asp-validation-for="RepairOrder.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.Customer" class="control-label"></label>
                 <select asp-for="RepairOrder.CustomerID" class="form-control" asp-items="ViewBag.CustomerID"></select>
                 <span asp-validation-for="RepairOrder.CustomerID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RepairOrder.EmployeeID" class="control-label"></label>
+                <label asp-for="RepairOrder.Employee" class="control-label"></label>
                 <select asp-for="RepairOrder.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeID"></select>
                 <span asp-validation-for="RepairOrder.EmployeeID" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="RepairOrder.PartID" class="control-label"></label>
-                <select asp-for="RepairOrder.PartID" class="form-control" asp-items="ViewBag.PartID"></select>
-                <span asp-validation-for="RepairOrder.PartID" class="text-danger"></span>
+                <label asp-for="RepairOrder.BeginDate" class="control-label"></label>
+                <input asp-for="RepairOrder.BeginDate" class="form-control" asp-items="ViewBag.BeginDates"></input>
             </div>
             <div class="form-group">
-                <label asp-for="RepairOrder.Status" class="control-label"></label>
-                <input asp-for="RepairOrder.Status" class="form-control" />
-                <span asp-validation-for="RepairOrder.Status" class="text-danger"></span>
+                <label asp-for="RepairOrder.EndDate" class="control-label"></label>
+                <input asp-for="RepairOrder.EndDate" class="form-control" asp-items="ViewBag.EndDates"></input>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.HoursWorked" class="control-label"></label>
+                <input asp-for="RepairOrder.HoursWorked" class="form-control" asp-items="ViewBag.HoursWorked"></input>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="RepairOrder.Part" class="control-label"></label>
+                <select asp-for="RepairOrder.PartID" class="form-control" asp-items="ViewBag.PartID"></select>
+                <span asp-validation-for="RepairOrder.PartID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

@@ -21,6 +21,7 @@ namespace RepairShop_Razor.Pages.Parts
 
         public IActionResult OnGet()
         {
+            ViewData["PartType"] = new SelectList(Enum.GetValues<PartType>());
             return Page();
         }
 

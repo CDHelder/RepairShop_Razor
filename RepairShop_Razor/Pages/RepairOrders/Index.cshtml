@@ -23,7 +23,13 @@
                 @Html.DisplayNameFor(model => model.RepairOrder[0].Employee)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RepairOrder[0].Part)
+                @Html.DisplayNameFor(model => model.RepairOrder[0].BeginDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RepairOrder[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RepairOrder[0].HoursWorked)
             </th>
             <th></th>
         </tr>
@@ -35,13 +41,19 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.ID)
+                @Html.DisplayFor(modelItem => item.Customer.FirstMidName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Employee.EmployeeID)
+                @Html.DisplayFor(modelItem => item.Employee.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Part.PartID)
+                @Html.DisplayFor(modelItem => item.BeginDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursWorked)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.RepairOrderID">Edit</a> |

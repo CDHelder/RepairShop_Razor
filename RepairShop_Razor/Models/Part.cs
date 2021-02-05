@@ -25,8 +25,19 @@ namespace RepairShop_Razor.Models
     public class Part
     {
         public int PartID { get; set; }
+
+        [Required]
+        [Display(Name = "Part Name")]
+        [MaxLength(255)]
         public string PartName { get; set; }
+
+        [Required]
+        [Display(Name = "Part Type")]
         public PartType PartType { get; set; }
+
+        [Required]
+        [Display(Name = "Part Price")]
+        [DataType(DataType.Currency)]
         public int PartPrice { get; set; }
 
         public ICollection<RepairOrder> RepairOrders { get; set; }

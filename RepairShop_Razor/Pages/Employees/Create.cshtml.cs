@@ -21,6 +21,7 @@ namespace RepairShop_Razor.Pages.Employees
 
         public IActionResult OnGet()
         {
+
             return Page();
         }
 

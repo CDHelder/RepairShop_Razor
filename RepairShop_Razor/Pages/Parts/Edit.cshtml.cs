@@ -36,6 +36,7 @@ namespace RepairShop_Razor.Pages.Parts
             {
                 return NotFound();
             }
+            ViewData["PartType"] = new SelectList(Enum.GetValues<PartType>());
             return Page();
         }
 
