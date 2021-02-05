@@ -31,6 +31,5 @@ namespace RepairShop_Razor.Models
 
         public ICollection<RepairOrder> RepairOrders { get; set; }
 
-
     }
 }

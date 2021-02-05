@@ -21,7 +21,7 @@ namespace RepairShop_Razor.Pages.RepairOrders
 
         public IActionResult OnGet()
         {
-            ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "ID");
+            ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "FirstMidName");
             ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "EmployeeID");
             ViewData["PartID"] = new SelectList(_context.Parts, "PartID", "PartID");
             ViewData["Customers"] = new SelectList(_context.Customers);
