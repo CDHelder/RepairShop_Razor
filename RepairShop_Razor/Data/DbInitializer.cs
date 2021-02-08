@@ -21,10 +21,10 @@ namespace RepairShop_Razor.Data
 
             var customers = new Customer[]
             {
-                new Customer{FirstMidName="Carson",LastName="Alexander"},
-                new Customer{FirstMidName="Meredith",LastName="Alonso"},
-                new Customer{FirstMidName="Arturo",LastName="Anand"},
-                new Customer{FirstMidName="Gytis",LastName="Barzdukas"}
+                new Customer{Name="Carson"},
+                new Customer{Name="Meredith"},
+                new Customer{Name="Arturo"},
+                new Customer{Name="Gytis"}
                 
             };
             context.Customers.AddRange(customers);
@@ -32,11 +32,11 @@ namespace RepairShop_Razor.Data
 
             var employees = new Employee[]
             {
-                new Employee{EmployeeID=1050,Name="Spiderman",Credits=3},
-                new Employee{EmployeeID=4022,Name="Superman",Credits=3},
-                new Employee{EmployeeID=4041,Name="Batman",Credits=3},
-                new Employee{EmployeeID=1045,Name="DrPepper",Credits=4},
-                new Employee{EmployeeID=3141,Name="Frans",Credits=4}
+                new Employee{EmployeeID=1050,Name="Spiderman"},
+                new Employee{EmployeeID=4022,Name="Superman"},
+                new Employee{EmployeeID=4041,Name="Batman"},
+                new Employee{EmployeeID=1045,Name="DrPepper"},
+                new Employee{EmployeeID=3141,Name="Frans"}
             };
             context.Employees.AddRange(employees);
             context.SaveChanges();

@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.RepairOrder.Customer)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RepairOrder.Customer.FirstMidName)
+            @Html.DisplayFor(model => model.RepairOrder.Customer.Name)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RepairOrder.Employee)
@@ -52,6 +52,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RepairOrder.Part.PartName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RepairOrder.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RepairOrder.Description)
         </dd>
     </dl>
 </div>

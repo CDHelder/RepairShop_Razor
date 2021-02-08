@@ -9,6 +9,25 @@
 
 <p>
     <a asp-page="Create">Create New</a>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <td>
+                    On_hold: @Html.ViewData.Model.RepairOrder.Count(model => model.Status == Models.Status.On_hold)
+                </td>
+                <td>
+                    Under_repair: @Html.ViewData.Model.RepairOrder.Count(model => model.Status == Models.Status.Under_repair)
+                </td>
+                <td>
+                    Waiting_for_parts: @Html.ViewData.Model.RepairOrder.Count(model => model.Status == Models.Status.Waiting_for_parts)
+                </td>
+                <td>
+                    Done: @Html.ViewData.Model.RepairOrder.Count(model => model.Status == Models.Status.Done)
+                </td>
+            </tr>
+        </thead>
+    </table>
 </p>
 <table class="table">
     <thead>
@@ -28,9 +47,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.RepairOrder[0].EndDate)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RepairOrder[0].HoursWorked)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -41,20 +57,27 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.FirstMidName)
+                @Html.DisplayFor(modelItem => item.Customer.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Employee.Name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BeginDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoursWorked)
-            </td>
+            @if (item.BeginDate.DayOfYear <= DateTime.Today.DayOfYear)
+                {
+                    <td style="color:red">@item.BeginDate.ToString("yyyy-MM-dd")</td>
+                }
+                else
+                {
+                    <td>@item.BeginDate.ToString("yyyy-MM-dd")</td>
+                }
+                @if (item.EndDate.DayOfYear <= DateTime.Today.DayOfYear)
+                {
+                    <td style="color:red">@item.EndDate.ToString("yyyy-MM-dd")</td>
+                }
+                else
+                {
+                    <td>@item.EndDate.ToString("yyyy-MM-dd")</td>
+                }
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.RepairOrderID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.RepairOrderID">Details</a> |

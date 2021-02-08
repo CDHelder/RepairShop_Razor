@@ -19,15 +19,15 @@
                 <span asp-validation-for="Employee.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.Credits" class="control-label"></label>
-                <input asp-for="Employee.Credits" class="form-control" />
-                <span asp-validation-for="Employee.Credits" class="text-danger"></span>
+                <label asp-for="Employee.ExpertiseLevel" class="control-label"></label>
+                <select asp-for="Employee.ExpertiseLevel" class="form-control" asp-items="ViewBag.ExpertiseLevels"></select>
+                <span asp-validation-for="Employee.ExpertiseLevel" class="text-danger"></span>
             </div>
 
-            <!--   
-            View verwerkingen van de punten genoemd in de Employee Class, uitkijken hiermee want het doet raar.
-            Hij werkte niet maar check eerst of je elke plek wel goed hebt ingevuld bij alle views.
-
+            <!--
+    View verwerkingen van de punten genoemd in de Employee Class, uitkijken hiermee want het doet raar.
+    Hij werkte niet maar check eerst of je elke plek wel goed hebt ingevuld bij alle views.
+        -->
             <div class="form-group">
                 <label asp-for="Employee.Emailadress" class="control-label"></label>
                 <input asp-for="Employee.Emailadress" class="form-control" />
@@ -39,11 +39,17 @@
                 <span asp-validation-for="Employee.PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.Adress" class="control-label"></label>
-                <input asp-for="Employee.Adress" class="form-control" />
-                <span asp-validation-for="Employee.Adress" class="text-danger"></span>
+                <label asp-for="Employee.Address" class="control-label"></label>
+                <input asp-for="Employee.Address" class="form-control" />
+                <span asp-validation-for="Employee.Address" class="text-danger"></span>
             </div>
-            -->
+
+            <div class="form-group">
+                <label asp-for="Employee.Postalcode" class="control-label"></label>
+                <input asp-for="Employee.Postalcode" class="form-control" />
+                <span asp-validation-for="Employee.Postalcode" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

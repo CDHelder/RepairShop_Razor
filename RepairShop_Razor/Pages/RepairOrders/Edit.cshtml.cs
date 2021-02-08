@@ -39,7 +39,7 @@ namespace RepairShop_Razor.Pages.RepairOrders
             {
                 return NotFound();
             }
-            ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "FirstMidName");
+            ViewData["CustomerID"] = new SelectList(_context.Customers, "ID", "Name");
             ViewData["EmployeeID"] = new SelectList(_context.Employees, "EmployeeID", "Name");
             ViewData["PartID"] = new SelectList(_context.Parts, "PartID", "PartName");
             ViewData["Statussen"] = new SelectList(Enum.GetValues<Status>());

@@ -11,14 +11,9 @@ namespace RepairShop_Razor.Models
         public int ID { get; set; }
 
         [Required]
-        [Display(Name = "First Name")]
+        [Display(Name = "Name")]
         [MaxLength(255)]
-        public string LastName { get; set; }
-
-        [Required]
-        [Display(Name = "Last Name")]
-        [MaxLength(255)]
-        public string FirstMidName { get; set; }
+        public string Name { get; set; }
 
         [DataType(DataType.EmailAddress)]
         [Display(Name = "EmailAdress")]

@@ -6,15 +6,23 @@ using System.Threading.Tasks;
 
 namespace RepairShop_Razor.Models
 {
+    public enum Experience
+    {
+        Trainee,
+        Junior,
+        Middle,
+        Senior,
+        Product_manager
+    }
+
     public class Employee
     {
         public int EmployeeID { get; set; }
 
         [MaxLength(255)]
         public string Name { get; set; }
-        public int Credits { get; set; }    // Vervangen / weghalen
-
-        /*
+        public Experience ExpertiseLevel { get; set; } 
+        
         [DataType(DataType.EmailAddress)]
         [Display(Name = "EmailAdress")]
         public string Emailadress { get; set; }
@@ -23,12 +31,11 @@ namespace RepairShop_Razor.Models
         [Display(Name = "Phone number")]
         public int PhoneNumber { get; set; }
 
-        [Display(Name ="Adress")]
-        public string Adress { get; set; }
+        [Display(Name ="Address")]
+        public string Address { get; set; }
 
-        Als deze aanstaat werkt RepairOrder en nog een andere pagina niet?!
-        Maybe eerst alles afmaken want hij werkte niet toen ik pas de helft af had
-        */
+        [DataType(DataType.PostalCode)]
+        public virtual string Postalcode { get; set; }
 
         public ICollection<RepairOrder> RepairOrders { get; set; }
     }

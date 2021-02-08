@@ -46,6 +46,11 @@
                 <select asp-for="RepairOrder.PartID" class="form-control" asp-items="ViewBag.PartID"></select>
             </div>
             <div class="form-group">
+                <label asp-for="RepairOrder.Description" class="control-label"></label>
+                <textarea asp-for="RepairOrder.Description" class="form-control"></textarea>
+                <span asp-validation-for="RepairOrder.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

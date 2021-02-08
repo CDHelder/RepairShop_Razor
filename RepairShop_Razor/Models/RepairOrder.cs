@@ -21,9 +21,11 @@ namespace RepairShop_Razor.Models
         public int EmployeeID { get; set; }
         public int PartID { get; set; }
 
+
         [Display(Name = "Repair Status")]
         public Status? Status { get; set; }
 
+        [Range(0,1000, ErrorMessage = "Please enter a value between 0 and 1000")]
         [Display(Name = "Hours Worked")]
         public int HoursWorked { get; set; }
 
@@ -38,6 +40,11 @@ namespace RepairShop_Razor.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [MaxLength(500)]
+        public string Description { get; set; }
+
 
         public Customer Customer { get; set; }
         public Employee Employee { get; set; }

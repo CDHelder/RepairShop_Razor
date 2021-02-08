@@ -21,7 +21,7 @@ namespace RepairShop_Razor.Pages.Employees
 
         public IActionResult OnGet()
         {
-
+            ViewData["ExpertiseLevels"] = new SelectList(Enum.GetValues<Experience>());
             return Page();
         }
 
