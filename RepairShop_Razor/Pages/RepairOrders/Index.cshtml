@@ -52,7 +52,13 @@
     </thead>
     <tbody>
 @foreach (var item in Model.RepairOrder) {
-        <tr>
+
+    string tr_color = "white";
+
+    if (item.Status.ToString() == "Done") { tr_color = "lightgreen"; }
+    else if (item.BeginDate <= DateTime.Today) { tr_color = "lightcoral"; }
+
+        <tr style='background-color:@tr_color;'>
             <td>
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
@@ -62,22 +68,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Employee.Name)
             </td>
-            @if (item.BeginDate.DayOfYear <= DateTime.Today.DayOfYear)
-                {
-                    <td style="color:red">@item.BeginDate.ToString("yyyy-MM-dd")</td>
-                }
-                else
-                {
-                    <td>@item.BeginDate.ToString("yyyy-MM-dd")</td>
-                }
-                @if (item.EndDate.DayOfYear <= DateTime.Today.DayOfYear)
-                {
-                    <td style="color:red">@item.EndDate.ToString("yyyy-MM-dd")</td>
-                }
-                else
-                {
-                    <td>@item.EndDate.ToString("yyyy-MM-dd")</td>
-                }
+            <td>
+                @Html.DisplayFor(modelItem => item.BeginDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.RepairOrderID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.RepairOrderID">Details</a> |
