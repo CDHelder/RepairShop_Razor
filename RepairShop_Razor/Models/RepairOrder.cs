@@ -41,9 +41,15 @@ namespace RepairShop_Razor.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
 
+        [Display(Name = "Repair Description")]
         [DataType(DataType.MultilineText)]
         [MaxLength(500)]
-        public string Description { get; set; }
+        public string RepairDescription { get; set; }
+
+        [Display(Name = "Work Report")]
+        [DataType(DataType.MultilineText)]
+        [MaxLength(500)]
+        public string WorkReport { get; set; }
 
 
         public Customer Customer { get; set; }

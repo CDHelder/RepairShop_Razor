@@ -49,9 +49,14 @@
                 <span asp-validation-for="RepairOrder.PartID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RepairOrder.Description" class="control-label"></label>
-                <textarea asp-for="RepairOrder.Description" class="form-control"></textarea>
-                <span asp-validation-for="RepairOrder.Description" class="text-danger"></span>
+                <label asp-for="RepairOrder.RepairDescription" class="control-label"></label>
+                <textarea asp-for="RepairOrder.RepairDescription" class="form-control"></textarea>
+                <span asp-validation-for="RepairOrder.RepairDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RepairOrder.WorkReport" class="control-label"></label>
+                <textarea asp-for="RepairOrder.WorkReport" class="form-control"></textarea>
+                <span asp-validation-for="RepairOrder.WorkReport" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

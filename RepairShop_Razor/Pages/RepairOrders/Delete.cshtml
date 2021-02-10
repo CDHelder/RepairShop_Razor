@@ -54,11 +54,17 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RepairOrder.Part.PartName)
         </dd>
-                <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RepairOrder.Description)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RepairOrder.RepairDescription)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RepairOrder.Description)
+            @Html.DisplayFor(model => model.RepairOrder.RepairDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RepairOrder.WorkReport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RepairOrder.WorkReport)
         </dd>
     </dl>
     
