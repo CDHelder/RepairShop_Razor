@@ -94,6 +94,11 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
+    .nowrap {
+        white-space: nowrap;
+        color:grey;
+    }
+
     </style>
 </head>
 
@@ -155,34 +160,40 @@
 
             <tr class="item">
                 <td>
+                    Parts
+                </td>
+                @foreach (var repairOrderDetail in Model.RepairOrder.RepairOrderDetails)
+                {
+                    <td>
+                        <span class="nowrap">
+                            repairOrderDetail.Part.PartName, repairOrderDetail.Part.PartType :
+                            <span style="color:black"> € repairOrderDetail.Part.PartPrice)</span>
+                        </span>
+
+                        <span style="display:none;"> @(TotalCost = TotalCost + (repairOrderDetail.Part.PartPrice)) </span>
+                    </td>
+                }
+                </tr>
+
+            <tr class="item">
+                <td>
                     Repair Labor
                 </td>
 
                 <td>
-                    <span style="color:lightgray"> @Model.RepairOrder.HoursWorked hours  X € @CostEachHour : </span>
-                    € @(Model.RepairOrder.HoursWorked * CostEachHour)
+                    <span class="nowrap">
+                        @Model.RepairOrder.HoursWorked hours  X € @CostEachHour :
+                        <span style="color:black"> € @(Model.RepairOrder.HoursWorked * CostEachHour)</span>
+                    </span>
 
                     <span style="display:none;"> @(TotalCost = TotalCost + (Model.RepairOrder.HoursWorked * CostEachHour)) </span>
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Parts
-                </td>
-
-                <td>
-                    <span style="color:lightgray"> @Model.RepairOrder.Part.PartName, @Model.RepairOrder.Part.PartType : </span>
-                    € @(Model.RepairOrder.Part.PartPrice)
-
-                    <span style="display:none;"> @(TotalCost = TotalCost + (Model.RepairOrder.Part.PartPrice)) </span>
                 </td>
             </tr>
 
             <tr class="item last">
                 <td>
                     Work Report: <br>
-                    @Model.RepairOrder.WorkReport
+                    <span style="color:grey">@Model.RepairOrder.WorkReport</span>
                 </td>
             </tr>
 

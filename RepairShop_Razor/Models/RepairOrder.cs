@@ -19,13 +19,11 @@ namespace RepairShop_Razor.Models
         public int RepairOrderID { get; set; }
         public int CustomerID { get; set; }
         public int EmployeeID { get; set; }
-        public int PartID { get; set; }
 
 
         [Display(Name = "Repair Status")]
         public Status? Status { get; set; }
 
-        [Range(0,1000, ErrorMessage = "Please enter a value between 0 and 1000")]
         [Display(Name = "Hours Worked")]
         public int HoursWorked { get; set; }
 
@@ -54,7 +52,10 @@ namespace RepairShop_Razor.Models
 
         public Customer Customer { get; set; }
         public Employee Employee { get; set; }
-        public Part Part { get; set; }
+
+
+        //public RepairOrderDetail _RepairOrderDetail { get; set; }
+        public List<RepairOrderDetail> RepairOrderDetails { get; set; }
 
     }
 }

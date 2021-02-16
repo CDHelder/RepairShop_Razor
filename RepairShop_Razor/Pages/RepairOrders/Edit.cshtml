@@ -43,11 +43,12 @@
                 <input asp-for="RepairOrder.HoursWorked" class="form-control" asp-items="ViewBag.HoursWorked">
             </div>
 
-            <div class="form-group">
-                <label asp-for="RepairOrder.Part" class="control-label"></label>
-                <select asp-for="RepairOrder.PartID" class="form-control" asp-items="ViewBag.PartID"></select>
-                <span asp-validation-for="RepairOrder.PartID" class="text-danger"></span>
-            </div>
+            <!--<div class="form-group">
+                <label asp-for="RepairOrder._RepairOrderDetail.Part.PartName" class="control-label"></label>
+                <select multiple asp-for="RepairOrder._RepairOrderDetail.Part.PartName" id="Email" asp-items="ViewBag.PartID" placeholder="Select Parts" class="form-control w-50 dropdown"> </select>-->
+                <!--<select asp-for="RepairOrder.PartID" class="form-control" asp-items="ViewBag.PartID"></select>-->
+                <!--<span asp-validation-for="RepairOrder._RepairOrderDetail.Part.PartName" class="text-danger"></span>
+            </div>-->
             <div class="form-group">
                 <label asp-for="RepairOrder.RepairDescription" class="control-label"></label>
                 <textarea asp-for="RepairOrder.RepairDescription" class="form-control"></textarea>

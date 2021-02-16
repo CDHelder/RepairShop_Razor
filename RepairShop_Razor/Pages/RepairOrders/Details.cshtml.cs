@@ -31,7 +31,8 @@ namespace RepairShop_Razor.Pages.RepairOrders
             RepairOrder = await _context.RepairOrders
                 .Include(r => r.Customer)
                 .Include(r => r.Employee)
-                .Include(r => r.Part).FirstOrDefaultAsync(m => m.RepairOrderID == id);
+                .Include(r => r.RepairOrderDetails)
+                .FirstOrDefaultAsync(m => m.RepairOrderID == id);
 
             if (RepairOrder == null)
             {

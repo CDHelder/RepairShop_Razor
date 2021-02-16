@@ -26,7 +26,7 @@ namespace RepairShop_Razor.Pages.RepairOrders
             RepairOrder = await _context.RepairOrders
                 .Include(r => r.Customer)
                 .Include(r => r.Employee)
-                .Include(r => r.Part).ToListAsync();
+                .ToListAsync();
         }
     }
 }

@@ -36,11 +36,11 @@ namespace RepairShop_Razor.Models
         public PartType PartType { get; set; }
 
         [Required]
-        [Display(Name = "Part Price")]
+        [Display(Name = "Part Price Without Taxes (21%)")]
         [DataType(DataType.Currency)]
         public int PartPrice { get; set; }
 
-        public ICollection<RepairOrder> RepairOrders { get; set; }
+        //public List<RepairOrderDetail> RepairOrderDetail { get; set; }
 
     }
 }

@@ -22,7 +22,7 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RepairOrder.Customer.Name)
-            <span style="color:lightgray">
+            <span style="color:grey">
                 &emsp;&emsp;&emsp;&emsp; Email: @Model.RepairOrder.Customer.Emailadress
                 &emsp;&emsp;&emsp;&emsp; Phone: @Model.RepairOrder.Customer.PhoneNumber
             </span>
@@ -32,7 +32,7 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RepairOrder.Employee.Name)
-            <span style="color:lightgray">
+            <span style="color:grey">
                 &emsp;&emsp;&emsp;&emsp; Email: @Model.RepairOrder.Employee.Emailadress
                 &emsp;&emsp;&emsp;&emsp; Phone: @Model.RepairOrder.Employee.PhoneNumber
             </span>
@@ -55,12 +55,12 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RepairOrder.HoursWorked)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.RepairOrder.Part)
+        @*<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RepairOrder._RepairOrderDetail.Part)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RepairOrder.Part.PartName)
-        </dd>
+            @Html.DisplayFor(model => model.RepairOrder._RepairOrderDetail.Part.PartName)
+        </dd>*@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RepairOrder.RepairDescription)
         </dt>
